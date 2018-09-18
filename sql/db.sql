@@ -347,6 +347,8 @@ INSERT INTO `config` VALUES ('65', 'website_logo', '');
 INSERT INTO `config` VALUES ('66', 'website_home_logo', '');
 INSERT INTO `config` VALUES ('67', 'is_tcp_check', 0);
 INSERT INTO `config` VALUES ('68', 'tcp_check_warning_times', 3);
+INSERT INTO `config` VALUES ('69', 'is_forbid_china', 0);
+INSERT INTO `config` VALUES ('70', 'is_forbid_oversea', 0);
 
 
 -- ----------------------------
@@ -1066,20 +1068,15 @@ CREATE TABLE `user_login_log` (
 	`user_id` INT(11) NOT NULL DEFAULT '0',
 	`ip` CHAR(20) NOT NULL,
 	`country` CHAR(20) NOT NULL,
-	`country_id` CHAR(20) NOT NULL,
-	`region` CHAR(20) NOT NULL,
-	`region_id` CHAR(20) NOT NULL,
+	`province` CHAR(20) NOT NULL,
 	`city` CHAR(20) NOT NULL,
-	`city_id` CHAR(20) NOT NULL,
 	`county` CHAR(20) NOT NULL,
-	`county_id` CHAR(20) NOT NULL,
 	`isp` CHAR(20) NOT NULL,
-	`isp_id` CHAR(20) NOT NULL,
+	`area` CHAR(20) NOT NULL,
 	`created_at` DATETIME NOT NULL,
 	`updated_at` DATETIME NOT NULL,
 	PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户登录日志';
-
+) ENGINE=InnoDB COLLATE='utf8mb4_general_ci' COMMENT='用户登录日志';
 
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
